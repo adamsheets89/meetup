@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Register</fullName>
+    <availability>online</availability>
+    <description>Allows a user to register for a Meetup</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Register</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/lightning/cmp/c__RegistrationPageWrapper?c__code={!Meetup__c.RegistrationCode__c}&amp;c__recordId={!Meetup__c.Id}</url>
+</WebLink>
