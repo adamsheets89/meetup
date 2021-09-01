@@ -5,29 +5,46 @@
         <div if:true={isRegistering}>
           <lightning-spinner alternative-text="Registering..." variant="neutral"> </lightning-spinner>
         </div>
-        <lightning-record-edit-form
-            density="compact"
-            object-api-name="MeetupRegistration__c"          
-            onsubmit={handleSubmit}
-            onsuccess={handleSuccess}
-            onerror={handleError}
-        >
-            <div class="slds-form slds-grid slds-wrap">
-            <template for:each={fields} for:item="field">
-                <div key={field} class="slds-col slds-size_1-of-2">
-                <lightning-input-field
+        <template if:false={showForm}>
+          <div class="slds-form slds-grid">
+            <lightning-input
+              class="slds-col slds-size_2-of-4"
+              label={searchLabel}
+              onchange={handleChange}
+            ></lightning-input>
+            <lightning-button
+              class="slds-col slds-size_1-of-4 slds-m-top--large slds-m-left--small"
+              label="Go"
+              onclick={goToForm}
+              disabled={disableSearch}
+            ></lightning-button>
+          </div>
+        </template>
+          <template if:true={showForm}>
+            <lightning-record-edit-form
+              density="compact"
+              object-api-name="MeetupRegistration__c"          
+              onsubmit={handleSubmit}
+              onsuccess={handleSuccess}
+              onerror={handleError}
+              >
+              <div class="slds-form slds-grid slds-wrap">
+                <template for:each={registrationFields} for:item="field">
+                  <div key={field} class="slds-col slds-size_1-of-2">
+                    <lightning-input-field
                     field-name={field.name}
                     value={field.value}
-                ></lightning-input-field>
-                </div>
-            </template>
-            </div>
-            <lightning-button
-            class="slds-float_right slds-m-top--xx-small"
-            label="Register"
-            type="submit"
-            ></lightning-button>
-        </lightning-record-edit-form>
+                    ></lightning-input-field>
+                  </div>
+                </template>
+              </div>
+              <lightning-button
+              class="slds-float_right slds-m-top--xx-small"
+              label="Register"
+              type="submit"
+              ></lightning-button>
+            </lightning-record-edit-form>
+          </template>
       </div>
     </article>
   </template>
