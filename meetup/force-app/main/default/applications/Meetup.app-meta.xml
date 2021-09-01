@@ -28,6 +28,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Meetup</label>
     <navType>Standard</navType>
+    <tabs>Registration_Page</tabs>
     <tabs>MeetupRegistration__c</tabs>
     <tabs>Meetup__c</tabs>
     <uiType>Lightning</uiType>
